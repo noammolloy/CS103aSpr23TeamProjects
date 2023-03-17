@@ -39,6 +39,91 @@ def index():
         <a href="{url_for('team')}">Team page</a>
     '''
 
+@app.route("/about")
+def about():
+    return '''
+    <h1>About Page</h1>
+    <p>This is a demo of a web app which uses GPT to answer dino related questions. :).<br>
+    Check out our <a href="https://github.com/noammolloy/CS103aSpr23TeamProjects">Github</a> page for more information.
+    </p>
+    ''' 
+
+@app.route("/index")
+def about():
+    return '''
+    <h1>Index</h1>
+    <p>
+    <a href="http://127.0.0.1:5001/Noam">Noam</a><br>
+    <a href="http://127.0.0.1:5001/Zared">Zared</a><br>
+    <a href="http://127.0.0.1:5001/Sydney">Sydney</a><br>
+    <a href="http://127.0.0.1:5001/Jingyi">Jingyi</a>
+    </p>
+    ''' 
+
+@app.route("/Noam")
+def form():
+    if request.method == 'GET':
+        return '''
+        <form method="POST">
+        This prompt will change the following code's variables into dino-themed variables: <input type="text" name="prompt"><br>
+        <input type="submit">
+        </form>
+        '''
+    elif request.method == 'POST':
+        prompt = int(request.form['prompt'])
+        return gptAPI.dino_code_variables(prompt)
+
+    else:
+        return 'unknown HTTP method: '+str(request.method)
+    
+@app.route("/Zared")
+def form():
+    if request.method == 'GET':
+        return '''
+        <form method="POST">
+        Enter the name of a new dinosaur: <input type="text" name="prompt"><br>
+        <input type="submit">
+        </form>
+        '''
+    elif request.method == 'POST':
+        prompt = int(request.form['prompt'])
+        return gptAPI.dino_create(prompt)
+
+    else:
+        return 'unknown HTTP method: '+str(request.method)
+    
+@app.route("/Sydney")
+def form():
+    if request.method == 'GET':
+        return '''
+        <form method="POST">
+        Enter input keywords about dinosaurs: <input type="text" name="prompt"><br>
+        <input type="submit">
+        </form>
+        '''
+    elif request.method == 'POST':
+        prompt = int(request.form['prompt'])
+        return gptAPI.dino_story(prompt)
+
+    else:
+        return 'unknown HTTP method: '+str(request.method)
+    
+@app.route("/Jingyi")
+def form():
+    if request.method == 'GET':
+        return '''
+        <form method="POST">
+        Enter a prompt you would like to be changed into dino-speak: <input type="text" name="prompt"><br>
+        <input type="submit">
+        </form>
+        '''
+    elif request.method == 'POST':
+        prompt = int(request.form['prompt'])
+        return gptAPI.dino_conversation(prompt)
+
+    else:
+        return 'unknown HTTP method: '+str(request.method)
+
 
 @app.route('/gptdemo', methods=['GET', 'POST'])
 def gptdemo():
