@@ -125,7 +125,7 @@ def route_jingyi():
         '''
     elif request.method == 'POST':
         prompt = str(request.form['prompt'])
-        return gptAPI.dino_conversation(prompt)
+        return gptAPI.dino_convo(prompt)
 
     else:
         return 'unknown HTTP method: '+str(request.method)
