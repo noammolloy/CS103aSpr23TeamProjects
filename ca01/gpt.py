@@ -56,7 +56,7 @@ class GPT():
         )
 
     def dino_convo(self, prompt):
-        prompt = "Change the following text to be written as if you are talking to a dinosaur" + prompt
+        prompt = 'Change the following text to be written as if you are talking to a dinosaur' + prompt
         completion = openai.Completion.create(
             engine=self.model_engine,
             prompt=prompt,
