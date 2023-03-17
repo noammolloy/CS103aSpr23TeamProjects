@@ -25,8 +25,7 @@ class GPT():
         ''' store the apikey in an instance variable '''
         self.apikey=apikey
         # Set up the OpenAI API client
-        openai.api_key = apikey #os.emviron.get('APIKEY')
- #os.environ.get('APIKEY')
+        openai.api_key = apikey #os.environ.get('APIKEY')
 
         # Set up the model and prompt
         self.model_engine = "text-davinci-003"
@@ -44,10 +43,24 @@ class GPT():
 
         response = completion.choices[0].text
         return response
+    
+    def dino_code_variables(self, prompt):
+        prompt = 'Change the variables in the following code to be dinosaur themed: ' + prompt
+        completion = openai.Completion.create(
+            engine=self.model_engine,
+            prompt=prompt,
+            max_tokens=1024,
+            n=1,
+            stop=None,
+            temperature=0.8,
+        )
+
+        response = completion.choices[0].text
+        return response
 
 if __name__=='__main__':
     '''
     '''
     import os
-    g = GPT(os.environ.get("API-KEY"))
+    g = GPT(os.environ.get("APIKEY"))
     print(g.getResponse("what does openai's GPT stand for?"))
