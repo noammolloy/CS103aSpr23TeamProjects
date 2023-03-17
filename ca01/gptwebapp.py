@@ -29,7 +29,7 @@ gptAPI = GPT(os.environ.get('APIKEY'))
 app.secret_key = b'_5#y2L"F4Q789789uioujkkljkl...8z\n\xec]/'
 
 @app.route('/')
-def index():
+def general():
     ''' display a link to the general query page '''
     print('processing / route')
     return f'''
@@ -55,7 +55,7 @@ def about():
     ''' 
 
 @app.route("/index")
-def about():
+def index():
     return '''
     <h1>Index</h1>
     <p>
@@ -67,7 +67,7 @@ def about():
     ''' 
 
 @app.route("/Noam", methods=['GET', 'POST'])
-def form():
+def route_noam():
     if request.method == 'GET':
         return '''
         <form method="POST">
@@ -83,7 +83,7 @@ def form():
         return 'unknown HTTP method: '+str(request.method)
     
 @app.route("/Zared", methods=['GET', 'POST'])
-def form():
+def route_zared():
     if request.method == 'GET':
         return '''
         <form method="POST">
@@ -99,7 +99,7 @@ def form():
         return 'unknown HTTP method: '+str(request.method)
     
 @app.route("/Syndey", methods=['GET', 'POST'])
-def form():
+def route_sydney():
     if request.method == 'GET':
         return '''
         <form method="POST">
@@ -115,7 +115,7 @@ def form():
         return 'unknown HTTP method: '+str(request.method)
     
 @app.route("/Jingyi", methods=['GET', 'POST'])
-def form():
+def route_jingyi():
     if request.method == 'GET':
         return '''
         <form method="POST">
