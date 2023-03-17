@@ -55,11 +55,8 @@ class GPT():
             temperature=0.8,
         )
 
-        response = completion.choices[0].text
-        return response
-    
-    def dino_conversation(self,prompt):
-        prompt = "test:  " + prompt
+    def dino_convo(self, prompt):
+        prompt = "Change the following text to be written as if you are talking to a dinosaur" + prompt
         completion = openai.Completion.create(
             engine=self.model_engine,
             prompt=prompt,
@@ -68,6 +65,9 @@ class GPT():
             stop=None,
             temperature=0.8,
         )
+
+        response = completion.choices[0].text
+        return response
 
         response = completion.choices[0].text
         return response
@@ -83,5 +83,6 @@ if __name__=='__main__':
                                 \nsum = num1 + num2
                                 \nprint('The sum of', num1, 'and', num2, 'is', sum)
                                 """))
+    print(g.dino_code_variables("Good morning, I am currently working on some homework. But I am very very hungry! Lunch time."))
 
 
