@@ -44,9 +44,8 @@ class GPT():
         response = completion.choices[0].text
         return response
     
-    # Noam
     def dino_code_variables(self, prompt):
-        prompt = 'Change the variable names in the following code to be dinosaur themed: ' + prompt
+        prompt = 'Change the variables in the following code to be dinosaur themed: ' + prompt
         completion = openai.Completion.create(
             engine=self.model_engine,
             prompt=prompt,
@@ -60,7 +59,7 @@ class GPT():
         return response
     
     def dino_conversation(self,prompt):
-        prompt = 'Change the following text to be formatted as if you are speaking to a dinosaur: ' + prompt
+        prompt = "test:  " + prompt
         completion = openai.Completion.create(
             engine=self.model_engine,
             prompt=prompt,
@@ -79,10 +78,4 @@ if __name__=='__main__':
     import os
     g = GPT(os.environ.get("APIKEY"))
     print(g.getResponse("what does openai's GPT stand for?"))
-    print(g.dino_code_variables("""num1 = 5
-                                \nnum2 = 10
-                                \nsum = num1 + num2
-                                \nprint('The sum of', num1, 'and', num2, 'is', sum)
-                                """))
-
-
+    print(g.getResponse("Good morning! I'm working on some homework for class, but I am very very hungry."))
