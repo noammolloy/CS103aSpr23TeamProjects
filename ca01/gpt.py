@@ -74,6 +74,21 @@ class GPT():
         response = completion.choices[0].text
         return response
     
+    # Sydney
+    def dino_story(self, prompt):
+        prompt = 'Create a short story using these input keywords about dinosaurs: ' + prompt
+        completion = openai.Completion.create(
+            engine=self.model_engine,
+            prompt=prompt,
+            max_tokens=1024,
+            n=1,
+            stop=None,
+            temperature=0.8,
+        )
+
+        response = completion.choices[0].text
+        return response
+    
         
     # Zared
     def dino_create(self, prompt):
@@ -96,6 +111,7 @@ if __name__=='__main__':
     import os
     g = GPT(os.environ.get("APIKEY"))
     # print(g.getResponse("what does openai's GPT stand for?"))
+    print(g.dino_story("pizza, cake, bbq, party"))
     print(g.dino_code_variables("""num1 = 5
                                 \nnum2 = 10
                                 \nsum = num1 + num2

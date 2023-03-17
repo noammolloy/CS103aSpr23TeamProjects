@@ -81,8 +81,8 @@ def team():
       <br>
       <li><strong>Sydney: </strong></li><br>
       <li><strong>Jingyi: </strong></li><br>
-            Created the dino_convo()
-            <br> - Takes in text, and returns it, written as if directed toward a dinosaur!<br>
+            Jingyi is a sophomore majoring cs and creative writing. She created dino_convo()
+            <br> - It takes in text, and returns it, written as if directed toward a dinosaur!<br>
       <li><strong>Zared: </strong></li>
     </ul>
     '''
