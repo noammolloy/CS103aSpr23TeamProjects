@@ -58,6 +58,22 @@ class GPT():
 
         response = completion.choices[0].text
         return response
+    
+        
+    # Zared
+    def dino_create(self, prompt):
+        prompt = 'Create and describe a new dinosaur with the name ' + prompt
+        completion = openai.Completion.create(
+            engine=self.model_engine,
+            prompt=prompt,
+            max_tokens=1024,
+            n=1,
+            stop=None,
+            temperature=0.8,
+        )
+
+        response = completion.choices[0].text
+        return response
 
 if __name__=='__main__':
     '''
@@ -70,5 +86,7 @@ if __name__=='__main__':
                                 \nsum = num1 + num2
                                 \nprint('The sum of', num1, 'and', num2, 'is', sum)
                                 """))
+
+
 
 
