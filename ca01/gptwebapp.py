@@ -35,6 +35,8 @@ def index():
     return f'''
         <h1>GPT Demo</h1>
         <a href="{url_for('gptdemo')}">Ask questions to GPT</a>
+        <br>
+        <a href="{url_for('team')}">Team page</a>
     '''
 
 
@@ -65,6 +67,21 @@ def gptdemo():
             <p><input type=submit value="get response">
         </form>
         '''
+    
+@app.route('/team')
+def team():
+    return '''
+    <h1>Team page</h1>
+    <ul>
+      <li><strong>Noam: </strong></li>
+            Created the dino_code_variables()
+            <br> - Takes in code, and returns the same code with dinosaur themed variables
+      <br>
+      <li><strong>Sydney: </strong></li><br>
+      <li><strong>Jingyi: </strong></li><br>
+      <li><strong>Zared: </strong></li>
+    </ul>
+    '''
 
 if __name__=='__main__':
     # run the code on port 5001, MacOS uses port 5000 for its own service :(
