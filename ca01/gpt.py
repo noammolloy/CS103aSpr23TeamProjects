@@ -58,23 +58,9 @@ class GPT():
         response = completion.choices[0].text
         return response
 
-    def dino_story(self, prompt):
-        prompt = 'Given the inputted words, create a story about dinosaurs: ' + prompt
-        completion = openai.Completion.create(
-            engine=self.model_engine,
-            prompt=prompt,
-            max_tokens=1024,
-            n=1,
-            stop=None,
-            temperature=0.8,
-        )
-
-        response = completion.choices[0].text
-        return response
-
 if __name__=='__main__':
     '''
     '''
     import os
     g = GPT(os.environ.get("APIKEY"))
-    print(g.dino_story("ice cream, bbq, ocean"))
+    print(g.getResponse("what does openai's GPT stand for?"))
