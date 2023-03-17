@@ -44,6 +44,7 @@ class GPT():
         response = completion.choices[0].text
         return response
     
+    # Noam
     def dino_code_variables(self, prompt):
         prompt = 'Change the variables in the following code to be dinosaur themed: ' + prompt
         completion = openai.Completion.create(
@@ -55,6 +56,7 @@ class GPT():
             temperature=0.8,
         )
 
+    # Jingyi
     def dino_convo(self, prompt):
         prompt = "Change the following text to be written as if you are talking to a dinosaur" + prompt
         completion = openai.Completion.create(
@@ -99,7 +101,7 @@ if __name__=='__main__':
                                 \nsum = num1 + num2
                                 \nprint('The sum of', num1, 'and', num2, 'is', sum)
                                 """))
-    print(g.dino_convo_variables("Good morning, I am currently working on some homework. But I am very very hungry! Lunch time."))
+    print(g.dino_convo("Good morning, I am currently working on some homework. But I am very very hungry! Lunch time."))
 
 
 
