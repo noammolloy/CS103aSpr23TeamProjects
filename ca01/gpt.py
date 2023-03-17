@@ -18,7 +18,7 @@ On Windows:
 % python gpt.py
 '''
 import openai
-# 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
+# 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
 
 class GPT():
     ''' make queries to gpt from a given API '''
@@ -44,10 +44,24 @@ class GPT():
 
         response = completion.choices[0].text
         return response
+    
+    def dino_code_variables(self, prompt):
+        prompt = 'Change the variables in the following code to be dinosaur themed: ' + prompt
+        completion = openai.Completion.create(
+            engine=self.model_engine,
+            prompt=prompt,
+            max_tokens=1024,
+            n=1,
+            stop=None,
+            temperature=0.8,
+        )
+
+        response = completion.choices[0].text
+        return response
 
 if __name__=='__main__':
     '''
     '''
     import os
-    g = GPT(os.environ.get("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"))
+    g = GPT(os.environ.get("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"))
     print(g.getResponse("what does openai's GPT stand for?"))
