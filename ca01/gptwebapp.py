@@ -73,11 +73,14 @@ def team():
     return '''
     <h1>Team page</h1>
     <ul>
-      <li><strong>Noam: </strong>Created the dino_code_variables()</li>
-            - Takes in code, and returns the same code with dinosaur themed variables<br>
-        <br>
+      <li><strong>Noam: </strong></li>
+            Created the dino_code_variables()
+            <br> - Takes in code, and returns the same code with dinosaur themed variables
+      <br>
       <li><strong>Sydney: </strong></li><br>
       <li><strong>Jingyi: </strong></li><br>
+            Created the dino_convo()
+            <br> - Takes in text, and returns it, written as if directed toward a dinosaur!<br>
       <li><strong>Zared: </strong></li>
     </ul>
     '''
