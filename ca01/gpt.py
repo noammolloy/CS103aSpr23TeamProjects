@@ -116,6 +116,7 @@ if __name__=='__main__':
                                 \nsum = num1 + num2
                                 \nprint('The sum of', num1, 'and', num2, 'is', sum)
                                 """))
+    print(g.dino_create("Bobby"))
 
 
 
