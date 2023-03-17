@@ -78,9 +78,8 @@ def team():
             <br> - Takes in code, and returns the same code with dinosaur themed variables
       <br>
       <li><strong>Sydney: </strong></li><br>
-        Sydney is a sophomore majoring in Computer Science and Environmental Studies.
-        <br> Role: created the dino_story()
-        <br> - Takes in input keywords, and returns a short story about dinosaurs with those words.
+            Sydney is a sophomore majoring in Computer Science and Environmental Studies. She created the dino_story()
+            <br> - It takes in input keywords, and returns a short story about dinosaurs with those words.
         <br>
       <li><strong>Jingyi: </strong></li><br>
             Jingyi is a sophomore majoring cs and creative writing. She created dino_convo()
