@@ -18,7 +18,7 @@ On Windows:
 % python gpt.py
 '''
 import openai
-
+# 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
 
 class GPT():
     ''' make queries to gpt from a given API '''
@@ -49,5 +49,5 @@ if __name__=='__main__':
     '''
     '''
     import os
-    g = GPT(os.environ.get("APIKEY"))
+    g = GPT(os.environ.get("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"))
     print(g.getResponse("what does openai's GPT stand for?"))
