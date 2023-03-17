@@ -44,9 +44,22 @@ class GPT():
         response = completion.choices[0].text
         return response
     
-    # Noam
     def dino_code_variables(self, prompt):
-        prompt = 'Change the variable names in the following code to be dinosaur themed: ' + prompt
+        prompt = 'Change the variables in the following code to be dinosaur themed: ' + prompt
+        completion = openai.Completion.create(
+            engine=self.model_engine,
+            prompt=prompt,
+            max_tokens=1024,
+            n=1,
+            stop=None,
+            temperature=0.8,
+        )
+
+        response = completion.choices[0].text
+        return response
+    
+    def dino_conversation(self,prompt):
+        prompt = "test:  " + prompt
         completion = openai.Completion.create(
             engine=self.model_engine,
             prompt=prompt,
