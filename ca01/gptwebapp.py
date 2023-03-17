@@ -98,7 +98,7 @@ def route_zared():
     else:
         return 'unknown HTTP method: '+str(request.method)
     
-@app.route("/Syndey", methods=['GET', 'POST'])
+@app.route("/Sydney", methods=['GET', 'POST'])
 def route_sydney():
     if request.method == 'GET':
         return '''
