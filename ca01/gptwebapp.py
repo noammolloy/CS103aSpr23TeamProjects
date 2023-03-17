@@ -34,9 +34,15 @@ def index():
     print('processing / route')
     return f'''
         <h1>GPT Demo</h1>
+        
         <a href="{url_for('gptdemo')}">Ask questions to GPT</a>
         <br>
+        <a href="{url_for('index')}">Index</a>
+        <br>
+        <a href="{url_for('about')}">About page</a>
+        <br>
         <a href="{url_for('team')}">Team page</a>
+        
     '''
 
 @app.route("/about")
@@ -60,7 +66,7 @@ def about():
     </p>
     ''' 
 
-@app.route("/Noam")
+@app.route("/Noam", methods=['GET', 'POST'])
 def form():
     if request.method == 'GET':
         return '''
@@ -76,7 +82,7 @@ def form():
     else:
         return 'unknown HTTP method: '+str(request.method)
     
-@app.route("/Zared")
+@app.route("/Zared", methods=['GET', 'POST'])
 def form():
     if request.method == 'GET':
         return '''
@@ -92,7 +98,7 @@ def form():
     else:
         return 'unknown HTTP method: '+str(request.method)
     
-@app.route("/Syndey")
+@app.route("/Syndey", methods=['GET', 'POST'])
 def form():
     if request.method == 'GET':
         return '''
@@ -108,7 +114,7 @@ def form():
     else:
         return 'unknown HTTP method: '+str(request.method)
     
-@app.route("/Jingyi")
+@app.route("/Jingyi", methods=['GET', 'POST'])
 def form():
     if request.method == 'GET':
         return '''
