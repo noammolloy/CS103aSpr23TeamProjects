@@ -18,7 +18,7 @@ On Windows:
 % python gpt.py
 '''
 import openai
-# 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
+# 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
 
 class GPT():
     ''' make queries to gpt from a given API '''
@@ -26,7 +26,8 @@ class GPT():
         ''' store the apikey in an instance variable '''
         self.apikey=apikey
         # Set up the OpenAI API client
-        openai.api_key = apikey #os.environ.get('APIKEY')
+        openai.api_key = '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'
+ #os.environ.get('APIKEY')
 
         # Set up the model and prompt
         self.model_engine = "text-davinci-003"
@@ -49,5 +50,5 @@ if __name__=='__main__':
     '''
     '''
     import os
-    g = GPT(os.environ.get("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"))
+    g = GPT(os.environ.get("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"))
     print(g.getResponse("what does openai's GPT stand for?"))
