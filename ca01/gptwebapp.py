@@ -76,7 +76,7 @@ def route_noam():
         </form>
         '''
     elif request.method == 'POST':
-        prompt = int(request.form['prompt'])
+        prompt = str(request.form['prompt'])
         return gptAPI.dino_code_variables(prompt)
 
     else:
@@ -92,7 +92,7 @@ def route_zared():
         </form>
         '''
     elif request.method == 'POST':
-        prompt = int(request.form['prompt'])
+        prompt = str(request.form['prompt'])
         return gptAPI.dino_create(prompt)
 
     else:
@@ -108,7 +108,7 @@ def route_sydney():
         </form>
         '''
     elif request.method == 'POST':
-        prompt = int(request.form['prompt'])
+        prompt = str(request.form['prompt'])
         return gptAPI.dino_story(prompt)
 
     else:
@@ -124,7 +124,7 @@ def route_jingyi():
         </form>
         '''
     elif request.method == 'POST':
-        prompt = int(request.form['prompt'])
+        prompt = str(request.form['prompt'])
         return gptAPI.dino_conversation(prompt)
 
     else:
@@ -164,7 +164,7 @@ def team():
     return '''
     <h1>Team page</h1>
     <ul>
-      <li><strong>Noam: </strong></li>
+      <li><strong>Noam: </strong></li><br>
             Created the dino_code_variables()
             <br> - Takes in code, and returns the same code with dinosaur themed variables
       <br>
@@ -175,7 +175,7 @@ def team():
       <li><strong>Jingyi: </strong></li><br>
             Jingyi is a sophomore majoring cs and creative writing. She created dino_convo()
             <br> - It takes in text, and returns it, written as if directed toward a dinosaur!<br>
-      <li><strong>Zared: </strong></li>
+      <li><strong>Zared: </strong></li><br>
             Zared is a sophomore majoring in computer science. He created dino_create()
             <br> It takes in key words, and creates a dinosuar!<br>
     </ul>
