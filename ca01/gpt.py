@@ -77,5 +77,11 @@ if __name__=='__main__':
     '''
     import os
     g = GPT(os.environ.get("APIKEY"))
-    print(g.getResponse("what does openai's GPT stand for?"))
-    print(g.getResponse("Good morning! I'm working on some homework for class, but I am very very hungry."))
+    # print(g.getResponse("what does openai's GPT stand for?"))
+    print(g.dino_code_variables("""num1 = 5
+                                \nnum2 = 10
+                                \nsum = num1 + num2
+                                \nprint('The sum of', num1, 'and', num2, 'is', sum)
+                                """))
+
+
