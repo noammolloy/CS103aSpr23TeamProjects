@@ -37,6 +37,15 @@ def index():
         <a href="{url_for('gptdemo')}">Ask questions to GPT</a>
     '''
 
+@app.route("/about")
+def about():
+    return '''
+    <h1>About Page</h1>
+    <p>This is a demo of a web app which uses GPT to answer dino related questions :).<br>
+    Check out our <a href="https://github.com/noammolloy/CS103aSpr23TeamProjects">Github</a> page for more information.
+    </p>
+    ''' 
+
 
 @app.route('/gptdemo', methods=['GET', 'POST'])
 def gptdemo():
