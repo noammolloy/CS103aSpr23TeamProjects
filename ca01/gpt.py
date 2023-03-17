@@ -99,7 +99,7 @@ if __name__=='__main__':
                                 \nsum = num1 + num2
                                 \nprint('The sum of', num1, 'and', num2, 'is', sum)
                                 """))
-    print(g.dino_code_variables("Good morning, I am currently working on some homework. But I am very very hungry! Lunch time."))
+    print(g.dino_convo_variables("Good morning, I am currently working on some homework. But I am very very hungry! Lunch time."))
 
 
 
