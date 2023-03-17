@@ -36,7 +36,9 @@ def index():
         <h1>GPT Demo</h1>
         <a href="{url_for('gptdemo')}">Ask questions to GPT</a>
         <br>
-        <a href="{url_for('team')}">Team page</a>
+        <a href="{url_for('team')}">Team Page</a>
+        <br>
+        <a href="{url_for('about')}">About Page</a>
     '''
 
 
@@ -83,6 +85,15 @@ def team():
             <br> - Takes in text, and returns it, written as if directed toward a dinosaur!<br>
       <li><strong>Zared: </strong></li>
     </ul>
+    '''
+
+@app.route('/about')
+def about():
+    return '''
+    <h1>About Page</h1>
+    <p>
+        Our program accepts prompts, and returns the answer provided by chatGPT, but stylized as each team member wanted
+    </p
     '''
 
 if __name__=='__main__':
