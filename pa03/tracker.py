@@ -11,10 +11,10 @@ def print_usage():
             show_transactions
             add_transaction <item#> <amount> <category> <date> <description> 
             delete_transaction <rowID>
-            summarize_by_date
-            summarize_by_month
-            summarize_by_year
-            summarize_by_category
+            summarize_by_date <date>
+            summarize_by_month <month>
+            summarize_by_year <year>
+            summarize_by_category <category>
             menu
             '''
             )
@@ -32,16 +32,16 @@ def process_args(args):
         Transaction.delete_transaction(args[1])
     elif args[0]=="summarize_by_date":
         # summarize transactions by date
-        Transaction.summarize_transactions_by_date()
+        Transaction.summarize_transactions_by_date(args[1])
     elif args[0]=="summarize_by_month":
         # summarize transactions by month
-        Transaction.summarize_transactions_by_month()
+        Transaction.summarize_transactions_by_month(args[1])
     elif args[0]=="summarize_by_year":
         # summarize transactions by year
-        Transaction.summarize_transactions_by_year()
+        Transaction.summarize_transactions_by_year(args[1])
     elif args[0]=="summarize_by_category":
         # summarize transactions by category
-        Transaction.summarize_transactions_by_category()
+        Transaction.summarize_transactions_by_category(args[1])
     elif args[0]=="menu":
         # show the menu
         print_usage()
@@ -58,7 +58,7 @@ def toplevel():
             args = input("command> ").split(' ')
             if args[0]=='add_transaction':
                 # join everyting after the name as a string
-                args = ['add_transaction', zip(args[1:])]
+                args = ['add_transaction', tuple(args[1:])]
             process_args(args)
             print('-'*40+'\n'*3)
     else:
