@@ -22,9 +22,29 @@ def print_usage():
 def process_args(args):
     ''' process the command line arguments '''
     if args[0]=='show_transaction':
-        # add a new todo item
+        # show the transaction
         Transaction.show_transactions()
-    elif args[0]
+    elif args[0]=="add_transaction":
+        # add a new transaction
+        Transaction.add_transaction(args[1:])
+    elif args[0]=="delete_transaction":
+        # delete a transaction
+        Transaction.delete_transaction(args[1])
+    elif args[0]=="summarize_by_date":
+        # summarize transactions by date
+        Transaction.summarize_transactions_by_date()
+    elif args[0]=="summarize_by_month":
+        # summarize transactions by month
+        Transaction.summarize_transactions_by_month()
+    elif args[0]=="summarize_by_year":
+        # summarize transactions by year
+        Transaction.summarize_transactions_by_year()
+    elif args[0]=="summarize_by_category":
+        # summarize transactions by category
+        Transaction.summarize_transactions_by_category()
+    elif args[0]=="menu":
+        # show the menu
+        print_usage()
 
 #Jingyi
 def toplevel():
