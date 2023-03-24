@@ -4,6 +4,7 @@ from transaction import Transaction
 
 ts = Transaction('tracker.db')
 
+#Jingyi
 def print_usage():
     ''' print an explanation of how to use this command '''
     print('''usage:
@@ -24,6 +25,7 @@ def process_args(args):
         # add a new todo item
         print("this is just here so no bug")
 
+#Jingyi
 def toplevel():
     ''' read the command args and process them'''
     if len(sys.argv)==1:
