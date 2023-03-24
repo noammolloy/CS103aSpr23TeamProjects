@@ -8,21 +8,21 @@ ts = Transaction('tracker.db')
 def print_usage():
     ''' print an explanation of how to use this command '''
     print('''usage:
-            show transactions
-            add transaction
-            delete transaction
-            summarize transactions by date
-            summarize transactions by month
-            summarize transactions by year
-            summarize transactions by category
-            print this menu
+            show_transactions
+            add_transaction
+            delete_transaction
+            summarize_by_date
+            summarize_by_month
+            summarize_by_year
+            summarize_by_category
+            menu
             '''
             )
     
 def process_args(args):
     ''' process the command line arguments '''
     if args[0]=='add_transaction':
-        # add a new todo item
+        # add a new transaction
         print("this is just here so no bug")
 
 #Jingyi
@@ -35,9 +35,9 @@ def toplevel():
         args = []
         while args!=['']:
             args = input("command> ").split(' ')
-            if args[0]=='add':
+            if args[0]=='add_transaction':
                 # join everyting after the name as a string
-                args = ['add',args[1]," ".join(args[2:])]
+                args = ['add_transaction',args[1]," ".join(args[2:])]
             process_args(args)
             print('-'*40+'\n'*3)
     else:
