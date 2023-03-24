@@ -1,8 +1,8 @@
 ''' tracker class'''
 import sys
-from transaction import transaction
+from transaction import Transaction
 
-ts = transaction('tracker.db')
+ts = Transaction('tracker.db')
 
 #Jingyi
 def print_usage():

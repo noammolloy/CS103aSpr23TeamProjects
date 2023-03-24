@@ -7,7 +7,7 @@ def to_dict(dict_t):
                    'amount':dict_t[2], 'category':dict_t[3],
                    'date':dict_t[4], 'description':dict_t[5]}
     return transaction_dict
-class transaction():
+class Transaction():
     '''list of SQL commands that the user can indirectly call'''
     # Noam
     def __init__(self, filename):
