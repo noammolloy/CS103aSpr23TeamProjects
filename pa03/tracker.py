@@ -1,4 +1,4 @@
-import sqlite3
+''' tracker class'''
 import sys
 from transaction import Transaction
 
@@ -51,7 +51,7 @@ def process_args(args):
 def toplevel():
     ''' read the command args and process them'''
     if len(sys.argv)==1:
-        # they didn't pass any arguments, 
+        # they didn't pass any arguments,
         # so prompt for them in a loop
         print_usage()
         args = []
