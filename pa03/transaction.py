@@ -12,9 +12,10 @@ import sqlite3
 import os
 
 class transaction():
+    # Noam
     def __init__(self):
-        self.runQuery('''CREATE TABLE IF NOT EXISTS todo
-                    (title text, desc text, completed int)''',())
+        self.runQuery('''CREATE TABLE IF NOT EXISTS transactions 
+        (id INTEGER PRIMARY KEY, item# int, amount int, category text, date text, description text)''',())
     
     def selectActive(self):
         ''' return all of the uncompleted tasks as a list of dicts.'''
