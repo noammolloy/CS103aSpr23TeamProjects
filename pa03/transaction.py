@@ -13,9 +13,8 @@ import os
 
 def toDict(t):
         ''' t is a tuple (rowid,title, desc,completed)'''
-        print('t='+str(t))
-        todo = {'rowid':t[0], 'title':t[1], 'desc':t[2], 'completed':t[3]}
-        return todo
+        transaction = {'rowid':t[0], 'item#':t[1], 'amount':t[2], 'category':t[3], 'date':t[4], 'description':t[5]}
+        return transaction
 
 class transaction():
     # Noam
