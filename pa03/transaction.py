@@ -20,7 +20,7 @@ class transaction():
 
     def show_transactions(self):
         ''' show all of the transactions in the transaction table '''
-        return self.runQuery("SELECT rowid,* from transactions",())
+        return self.runQuery("SELECT * from transactions",())
 
     def add_transaction(self,item):
         ''' add a new transaction item to the transaction table '''
