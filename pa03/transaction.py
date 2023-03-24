@@ -30,18 +30,22 @@ class transaction():
         ''' delete a transaction item from the transaction table '''
         return self.runQuery("DELETE FROM transactions WHERE rowid=?",(rowid,))
 
+    # Sydney
     def summarize_transactions_by_date(self):
         ''' summarize transactions by date '''
         return self.runQuery("SELECT date,* from transactions",())
     
+    # Sydney
     def summarize_transactions_by_month(self):
         ''' summarize transactions by month '''
         return self.runQuery("SELECT month,* from transactions",())
     
+    # Sydney
     def summarize_transactions_by_year(self):
         ''' summarize transactions by year '''
         return self.runQuery("SELECT year,* from transactions",())
     
+    # Sydney
     def summarize_transactions_by_category(self):
         ''' summarize transactions by category '''
         return self.runQuery("SELECT category,* from transactions",())
