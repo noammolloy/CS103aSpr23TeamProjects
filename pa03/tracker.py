@@ -57,7 +57,7 @@ def toplevel():
         while args!=['']:
             args = input("command> ").split(' ')
             if args[0]=='add_transaction':
-                # join everyting after the name as a string
+                # join everything after the name as a string
                 args = ['add_transaction', tuple(args[1:])]
             process_args(args)
             print('-'*40+'\n'*3)
