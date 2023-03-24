@@ -1,8 +1,8 @@
 ''' tracker class'''
 import sys
-from transaction import Transaction
+from transaction import transaction
 
-ts = Transaction('tracker.db')
+ts = transaction('tracker.db')
 
 #Jingyi
 def print_usage():
@@ -25,25 +25,25 @@ def process_args(args):
         sys.exit()
     elif args[0]=='show_transaction':
         # show the transaction
-        Transaction.show_transactions()
+        ts.show_transactions()
     elif args[0]=="add_transaction":
         # add a new transaction
-        Transaction.add_transaction(args[1])
+        ts.add_transaction(args[1])
     elif args[0]=="delete_transaction":
         # delete a transaction
-        Transaction.delete_transaction(args[1])
+        ts.delete_transaction(args[1])
     elif args[0]=="summarize_by_date":
         # summarize transactions by date
-        Transaction.summarize_transactions_by_date(args[1])
+        ts.summarize_transactions_by_date(args[1])
     elif args[0]=="summarize_by_month":
         # summarize transactions by month
-        Transaction.summarize_transactions_by_month(args[1])
+        ts.summarize_transactions_by_month(args[1])
     elif args[0]=="summarize_by_year":
         # summarize transactions by year
-        Transaction.summarize_transactions_by_year(args[1])
+        ts.summarize_transactions_by_year(args[1])
     elif args[0]=="summarize_by_category":
         # summarize transactions by category
-        Transaction.summarize_transactions_by_category(args[1])
+        ts.summarize_transactions_by_category(args[1])
     elif args[0]=="menu":
         # show the menu
         print_usage()
