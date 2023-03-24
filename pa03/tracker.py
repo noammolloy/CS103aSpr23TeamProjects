@@ -19,7 +19,6 @@ def print_usage():
             menu
             '''
             )
-    
 def process_args(args):
     ''' process the command line arguments '''
     if args[0]=='quit':
@@ -48,7 +47,6 @@ def process_args(args):
     elif args[0]=="menu":
         # show the menu
         print_usage()
-
 #Jingyi
 def toplevel():
     ''' read the command args and process them'''
