@@ -1,16 +1,19 @@
-import sqlite3
+'''imports SQL functions'''
+import sqlite3 
 
 def to_dict(t):
     ''' t is a tuple (rowid,title, desc,completed)'''
-    transaction = {'rowid':t[0], 'item#':t[1], 'amount':t[2], 'category':t[3], 'date':t[4], 'description':t[5]}
-    return transaction
-
+    transaction_dict = {'rowid':t[0], 'item#':t[1],
+                   'amount':t[2], 'category':t[3],
+                   'date':t[4], 'description':t[5]}
+    return transaction_dict
 class transaction():
     # Noam
     def __init__(self, filename):
         self.filename = filename
-        self.run_query('''CREATE TABLE IF NOT EXISTS transactions 
-        (id INTEGER PRIMARY KEY, item# int, amount int, category text, date text, description text)''',())
+        self.run_query('''CREATE TABLE IF NOT EXISTS transactions
+        (id INTEGER PRIMARY KEY, item# int, amount int,
+        category text, date text, description text)''',())
     def show_transactions(self):
         ''' show all of the transactions in the transaction table '''
         return self.run_query("SELECT * from transactions",())
@@ -43,9 +46,10 @@ class transaction():
     def run_query(self,query,tuple):
         ''' return all of the uncompleted tasks as a list of dicts.'''
         con= sqlite3.connect(self.filename)
-        cur = con.cursor() 
+        cur = con.cursor()
         cur.execute(query,tuple)
         tuples = cur.fetchall()
         con.commit()
         con.close()
-        return [to_dict(t) for t in tuples]
+        return [to_dict(dict_t) for dict_t in tuples]
+    
