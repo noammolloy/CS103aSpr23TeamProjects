@@ -2,7 +2,7 @@
 import sqlite3
 
 def to_dict(dict_t):
-    ''' t is a tuple (rowid,title, desc,completed)'''
+    ''' t is a dictionary of the transaction table'''
     transaction_dict = {'rowid':dict_t[0], 'item#':dict_t[1],
                    'amount':dict_t[2], 'category':dict_t[3],
                    'date':dict_t[4], 'description':dict_t[5]}
