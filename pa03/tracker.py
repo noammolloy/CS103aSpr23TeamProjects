@@ -8,6 +8,7 @@ ts = Transaction('tracker.db')
 def print_usage():
     ''' print an explanation of how to use this command '''
     print('''usage:
+            quit
             show_transactions
             add_transaction <item#> <amount> <category> <date> <description> 
             delete_transaction <rowID>
@@ -21,7 +22,9 @@ def print_usage():
     
 def process_args(args):
     ''' process the command line arguments '''
-    if args[0]=='show_transaction':
+    if args[0]=='quit':
+        sys.exit()
+    elif args[0]=='show_transaction':
         # show the transaction
         Transaction.show_transactions()
     elif args[0]=="add_transaction":
