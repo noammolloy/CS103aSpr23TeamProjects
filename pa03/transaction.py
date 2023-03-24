@@ -44,11 +44,11 @@ class Transaction():
         ''' summarize transactions by category, using the category parameter passed in
          and returning a list of transactions that have that category. '''
         return self.run_query("SELECT * from transactions WHERE category=?",(category,))
-    def run_query(self,query,tuple):
+    def run_query(self,query,tuple_list):
         ''' return all of the uncompleted tasks as a list of dicts.'''
         con= sqlite3.connect(self.filename)
         cur = con.cursor()
-        cur.execute(query,tuple)
+        cur.execute(query,tuple_list)
         tuples = cur.fetchall()
         con.commit()
         con.close()
