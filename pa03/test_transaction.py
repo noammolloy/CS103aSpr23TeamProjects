@@ -6,31 +6,48 @@ from transaction import transaction
 import pytest
 
 def test_quit():
-    pass
+    with pytest.raises(SystemExit):
+        quit()
 
 def test_show_transaction():
-    pass
+    ts = transaction('tracker.db')
+    assert ts.show_transactions() == None
 
 def test_add_transaction():
-    pass
+    ts = transaction('tracker.db')
+    assert ts.add_transaction('item#', 'amount', 'category', 'date', 'description') == None
 
 def test_delete_transaction():
-    pass
+    ts = transaction('tracker.db')
+    assert ts.delete_transaction('rowID') == None
 
 def test_summarize_transactions_by_date():
-    pass
+    ts = transaction('tracker.db')
+    assert ts.summarize_transactions_by_date('date') == None
 
 def test_summarize_transactions_by_month():
-    pass
+    ts = transaction('tracker.db')
+    assert ts.summarize_transactions_by_month('month') == None
 
 def test_summarize_transactions_by_year():
-    pass
+    ts = transaction('tracker.db')
+    assert ts.summarize_transactions_by_year('year') == None
 
 def test_summarize_transactions_by_category():
-    pass
+    ts = transaction('tracker.db')
+    assert ts.summarize_transactions_by_category('category') == None
 
 def test_menu():
-    pass
+    ts = transaction('tracker.db')
+    assert ts.menu() == None
 
 if __name__=='__main__':
     test_quit()
+    test_show_transaction()
+    test_add_transaction()
+    test_delete_transaction()
+    test_summarize_transactions_by_date()
+    test_summarize_transactions_by_month()
+    test_summarize_transactions_by_year()
+    test_summarize_transactions_by_category()
+    test_menu()
