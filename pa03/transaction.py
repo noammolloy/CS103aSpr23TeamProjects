@@ -49,11 +49,8 @@ class transaction():
         con.commit()
         con.close()
 
-<<<<<<< HEAD
     
-=======
 
         
 
 
->>>>>>> e350f657be0dba6926826048e690bb5a63ce549c
