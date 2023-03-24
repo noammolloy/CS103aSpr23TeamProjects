@@ -9,8 +9,8 @@ def print_usage():
     ''' print an explanation of how to use this command '''
     print('''usage:
             show_transactions
-            add_transaction
-            delete_transaction
+            add_transaction <item#> <amount> <category> <date> <description> 
+            delete_transaction <rowID>
             summarize_by_date
             summarize_by_month
             summarize_by_year
