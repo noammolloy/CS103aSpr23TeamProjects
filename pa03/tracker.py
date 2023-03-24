@@ -21,7 +21,7 @@ def print_usage():
     
 def process_args(args):
     ''' process the command line arguments '''
-    if args[0]=='add':
+    if args[0]=='add_transaction':
         # add a new todo item
         print("this is just here so no bug")
 
