@@ -1,13 +1,14 @@
 '''imports SQL functions'''
-import sqlite3 
+import sqlite3
 
-def to_dict(t):
+def to_dict(dict_t):
     ''' t is a tuple (rowid,title, desc,completed)'''
-    transaction_dict = {'rowid':t[0], 'item#':t[1],
-                   'amount':t[2], 'category':t[3],
-                   'date':t[4], 'description':t[5]}
+    transaction_dict = {'rowid':dict_t[0], 'item#':dict_t[1],
+                   'amount':dict_t[2], 'category':dict_t[3],
+                   'date':dict_t[4], 'description':dict_t[5]}
     return transaction_dict
-class transaction():
+class Transaction():
+    '''list of SQL commands that the user can indirectly call'''
     # Noam
     def __init__(self, filename):
         self.filename = filename
