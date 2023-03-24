@@ -13,8 +13,8 @@ class Transaction():
     def __init__(self, filename):
         self.filename = filename
         self.run_query('''CREATE TABLE IF NOT EXISTS transactions
-        (item# int, amount int,
-        category text, date text, description text)''',())
+        (item# INT PRIMARY KEY, amount int,
+        category text, date DATE, description text)''',())
     def show_transactions(self):
         ''' show all of the transactions in the transaction table '''
         return self.run_query("SELECT * from transactions",())
