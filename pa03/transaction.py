@@ -13,14 +13,14 @@ class Transaction():
     def __init__(self, filename):
         self.filename = filename
         self.run_query('''CREATE TABLE IF NOT EXISTS transactions
-        (id INTEGER PRIMARY KEY, item# int, amount int,
+        (item# int, amount int,
         category text, date text, description text)''',())
     def show_transactions(self):
         ''' show all of the transactions in the transaction table '''
         return self.run_query("SELECT * from transactions",())
     def add_transaction(self,item):
         ''' add a new transaction item to the transaction table '''
-        return self.run_query("INSERT INTO transactions VALUES (?,?,?,?,?,?)",item)
+        return self.run_query("INSERT INTO transactions VALUES (?,?,?,?,?)",item)
     def delete_transaction(self,rowid):
         ''' delete a transaction item from the transaction table '''
         return self.run_query("DELETE FROM transactions WHERE rowid=?",(rowid,))
