@@ -58,7 +58,7 @@ def toplevel():
             args = input("command> ").split(' ')
             if args[0]=='add_transaction':
                 # join everyting after the name as a string
-                args = ['add_transaction',args[1]," ".join(args[2:])]
+                args = ['add_transaction', zip(args[1:])]
             process_args(args)
             print('-'*40+'\n'*3)
     else:
