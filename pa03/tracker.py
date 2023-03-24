@@ -26,7 +26,7 @@ def process_args(args):
         Transaction.show_transactions()
     elif args[0]=="add_transaction":
         # add a new transaction
-        Transaction.add_transaction(args[1:])
+        Transaction.add_transaction(args[1])
     elif args[0]=="delete_transaction":
         # delete a transaction
         Transaction.delete_transaction(args[1])
