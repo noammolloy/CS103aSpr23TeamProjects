@@ -16,34 +16,38 @@ class transaction():
     def __init__(self):
         self.runQuery('''CREATE TABLE IF NOT EXISTS transactions 
         (id INTEGER PRIMARY KEY, item# int, amount int, category text, date text, description text)''',())
-    
-    def selectActive(self):
-        ''' return all of the uncompleted tasks as a list of dicts.'''
-        return self.runQuery("SELECT rowid,* from todo where completed=0",())
 
-    def selectAll(self):
-        ''' return all of the tasks as a list of dicts.'''
-        return self.runQuery("SELECT rowid,* from todo",())
-
-    def selectCompleted(self):
-        ''' return all of the completed tasks as a list of dicts.'''
-        return self.runQuery("SELECT rowid,* from todo where completed=1",())
+    def show_transactions(self):
+        ''' show all of the transactions in the transaction table '''
+        return self.runQuery("SELECT rowid,* from transactions",())
 
     def add_transaction(self,item):
-        ''' create a transaction item and add it to the transaction table '''
-        return self.runQuery("INSERT INTO todo (item) VALUES (?)",(item,))
+        ''' add a new transaction item to the transaction table '''
+        return self.runQuery("INSERT INTO transactions VALUES (?,?,?,?,?,?)",item)
 
     def delete_transaction(self,rowid):
-        ''' delete a transaction item '''
-        return self.runQuery("DELETE FROM todo WHERE rowid=(?)",(rowid,))
+        ''' delete a transaction item from the transaction table '''
+        return self.runQuery("DELETE FROM transactions WHERE rowid=?",(rowid,))
 
-    def setComplete(self,rowid):
-        ''' mark a todo item as completed '''
-        return self.runQuery("UPDATE todo SET completed=1 WHERE rowid=(?)",(rowid,))
+    def summarize_transactions_by_date(self,rowid):
+        ''' summarize transactions by date '''
+        return self.runQuery("SELECT rowid,* from transactions",())
+    
+    def summarize_transactions_by_month(self,rowid):
+        ''' summarize transactions by month '''
+        return self.runQuery("SELECT rowid,* from transactions",())
+    
+    def summarize_transactions_by_year(self,rowid):
+        ''' summarize transactions by year '''
+        return self.runQuery("SELECT rowid,* from transactions",())
+    
+    def summarize_transactions_by_category(self,rowid):
+        ''' summarize transactions by category '''
+        return self.runQuery("SELECT rowid,* from transactions",())
 
-    def runQuery(self,query,tuple):
+    def runQuery(self,query,tuple, filename):
         ''' return all of the uncompleted tasks as a list of dicts.'''
-        con= sqlite3.connect(os.getenv('HOME')+'/todo.db')
+        con= sqlite3.connect(os.getenv('HOME')+'/tracker.db')
         cur = con.cursor() 
         cur.execute(query,tuple)
         tuples = cur.fetchall()
