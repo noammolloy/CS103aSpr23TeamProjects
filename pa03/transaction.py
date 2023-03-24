@@ -31,24 +31,28 @@ class transaction():
         return self.runQuery("DELETE FROM transactions WHERE rowid=?",(rowid,))
 
     # Sydney
-    def summarize_transactions_by_date(self):
-        ''' summarize transactions by date '''
-        return self.runQuery("SELECT date,* from transactions",())
+    def summarize_transactions_by_date(self, date):
+        ''' summarize transactions by date, using the date parameter passed in
+         and returning a list of transactions that have that date. '''
+        return self.runQuery("SELECT * from transactions WHERE date=?",(date,))
     
     # Sydney
-    def summarize_transactions_by_month(self):
-        ''' summarize transactions by month '''
-        return self.runQuery("SELECT month,* from transactions",())
+    def summarize_transactions_by_month(self, month):
+        ''' summarize transactions by month, using the month parameter passed in
+         and returning a list of transactions that have that month. '''
+        return self.runQuery("SELECT * from transactions WHERE month=?",(month,))
     
     # Sydney
-    def summarize_transactions_by_year(self):
-        ''' summarize transactions by year '''
-        return self.runQuery("SELECT year,* from transactions",())
+    def summarize_transactions_by_year(self, year):
+        ''' summarize transactions by year, using the year parameter passed in
+         and returning a list of transactions that have that year.'''
+        return self.runQuery("SELECT * from transactions WHERE year=?",(year,))
     
     # Sydney
-    def summarize_transactions_by_category(self):
-        ''' summarize transactions by category '''
-        return self.runQuery("SELECT category,* from transactions",())
+    def summarize_transactions_by_category(self, category):
+        ''' summarize transactions by category, using the category parameter passed in
+         and returning a list of transactions that have that category. '''
+        return self.runQuery("SELECT * from transactions WHERE category=?",(category,))
 
     def runQuery(self,query,tuple):
         ''' return all of the uncompleted tasks as a list of dicts.'''
