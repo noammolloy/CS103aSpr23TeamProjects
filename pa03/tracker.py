@@ -21,9 +21,10 @@ def print_usage():
     
 def process_args(args):
     ''' process the command line arguments '''
-    if args[0]=='add_transaction':
+    if args[0]=='show_transaction':
         # add a new todo item
-        print("this is just here so no bug")
+        Transaction.show_transactions()
+    elif args[0]
 
 #Jingyi
 def toplevel():
