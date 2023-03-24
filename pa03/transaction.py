@@ -11,6 +11,12 @@
 import sqlite3
 import os
 
+def toDict(t):
+        ''' t is a tuple (rowid,title, desc,completed)'''
+        print('t='+str(t))
+        todo = {'rowid':t[0], 'title':t[1], 'desc':t[2], 'completed':t[3]}
+        return todo
+
 class transaction():
     # Noam
     def __init__(self, filename):
@@ -18,6 +24,7 @@ class transaction():
         self.runQuery('''CREATE TABLE IF NOT EXISTS transactions 
         (id INTEGER PRIMARY KEY, item# int, amount int, category text, date text, description text)''',())
 
+    
     def show_transactions(self):
         ''' show all of the transactions in the transaction table '''
         return self.runQuery("SELECT * from transactions",())
@@ -62,6 +69,7 @@ class transaction():
         tuples = cur.fetchall()
         con.commit()
         con.close()
+        return [toDict(t) for t in tuples]
 
     
 
