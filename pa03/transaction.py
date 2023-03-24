@@ -29,12 +29,12 @@ class transaction():
         ''' return all of the completed tasks as a list of dicts.'''
         return self.runQuery("SELECT rowid,* from todo where completed=1",())
 
-    def add(self,item):
-        ''' create a todo item and add it to the todo table '''
-        return self.runQuery("INSERT INTO todo VALUES(?,?,?)",(item['title'],item['desc'],item['completed']))
+    def add_transaction(self,item):
+        ''' create a transaction item and add it to the transaction table '''
+        return self.runQuery("INSERT INTO todo (item) VALUES (?)",(item,))
 
-    def delete(self,rowid):
-        ''' delete a todo item '''
+    def delete_transaction(self,rowid):
+        ''' delete a transaction item '''
         return self.runQuery("DELETE FROM todo WHERE rowid=(?)",(rowid,))
 
     def setComplete(self,rowid):
