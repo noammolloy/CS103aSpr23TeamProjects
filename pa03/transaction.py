@@ -33,12 +33,12 @@ class Transaction():
     def summarize_transactions_by_month(self, month):
         ''' summarize transactions by month, using the month parameter passed in
          and returning a list of transactions that have that month. '''
-        return self.run_query("SELECT * from transactions WHERE month=?",(month,))
+        return self.run_query("SELECT * from transactions WHERE MONTH(date)=?",(month,))
     # Sydney
     def summarize_transactions_by_year(self, year):
         ''' summarize transactions by year, using the year parameter passed in
          and returning a list of transactions that have that year.'''
-        return self.run_query("SELECT * from transactions WHERE year=?",(year,))
+        return self.run_query("SELECT * from transactions WHERE YEAR(date)=?",(year,))
     # Sydney
     def summarize_transactions_by_category(self, category):
         ''' summarize transactions by category, using the category parameter passed in
