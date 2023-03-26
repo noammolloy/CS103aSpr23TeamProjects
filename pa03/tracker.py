@@ -10,7 +10,7 @@ def print_usage():
     print('''usage:
             quit
             show_transactions
-            add_transaction <item#> <amount> <category> <date> <description> 
+            add_transaction <amount> <category> <YYYY-MM-DD> <description> 
             delete_transaction <rowID>
             summarize_by_date <date>
             summarize_by_month <month>
@@ -19,13 +19,24 @@ def print_usage():
             menu
             '''
             )
+def print_transactions(t):
+    ''' print the transaction items '''
+    if len(t)==0:
+        print('no tasks to print')
+        return
+    print('\n')
+    print("%-10s %-10s %-10s %-15s %-10s"%('item #','amount','category','date','description'))
+    print('-'*60)
+    for item in t:
+        values = tuple(item.values()) #(rowid,amount,category,date,desc)
+        print("%-10s %-10s %-10s %-15s %-10s"%values)
 def process_args(args):
     ''' process the command line arguments '''
     if args[0]=='quit':
         sys.exit()
-    elif args[0]=='show_transaction':
+    elif args[0]=='show_transactions':
         # show the transaction
-        ts.show_transactions()
+        print_transactions(ts.show_transactions())
     elif args[0]=="add_transaction":
         # add a new transaction
         ts.add_transaction(args[1])
@@ -34,16 +45,16 @@ def process_args(args):
         ts.delete_transaction(args[1])
     elif args[0]=="summarize_by_date":
         # summarize transactions by date
-        ts.summarize_transactions_by_date(args[1])
+        print_transactions(ts.summarize_transactions_by_date(args[1]))
     elif args[0]=="summarize_by_month":
         # summarize transactions by month
-        ts.summarize_transactions_by_month(args[1])
+        print_transactions(ts.summarize_transactions_by_month(args[1]))
     elif args[0]=="summarize_by_year":
         # summarize transactions by year
-        ts.summarize_transactions_by_year(args[1])
+        print_transactions(ts.summarize_transactions_by_year(args[1]))
     elif args[0]=="summarize_by_category":
         # summarize transactions by category
-        ts.summarize_transactions_by_category(args[1])
+        print_transactions(ts.summarize_transactions_by_category(args[1]))
     elif args[0]=="menu":
         # show the menu
         print_usage()
@@ -61,9 +72,11 @@ def toplevel():
                 # join everything after the name as a string
                 args = ['add_transaction', tuple(args[1:])]
             process_args(args)
-            print('-'*40+'\n'*3)
+            print('-'*60+'\n'*3)
     else:
         # read the args and process them
         args = sys.argv[1:]
         process_args(args)
-        print('-'*40+'\n'*3)
+        print('-'*40+'\n')
+
+toplevel()
