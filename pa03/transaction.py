@@ -17,7 +17,8 @@ class Transaction():
         return self.run_query("SELECT rowid,* from transactions",())
     def add_transaction(self,item):
         ''' add a new transaction item to the transaction table '''
-        return self.run_query("INSERT INTO transactions (amount, category, date, description) VALUES (?,?,?,?)",item)
+        return self.run_query('''INSERT INTO transactions
+                                (amount, category, date, description) VALUES (?,?,?,?)''',item)
     def delete_transaction(self,rowid):
         ''' delete a transaction item from the transaction table '''
         return self.run_query("DELETE FROM transactions WHERE rowid=?",(rowid,))
@@ -30,12 +31,14 @@ class Transaction():
     def summarize_transactions_by_month(self, month):
         ''' summarize transactions by month, using the month parameter passed in
          and returning a list of transactions that have that month. '''
-        return self.run_query("SELECT rowid,* from transactions WHERE strftime('%m', date)=?",(month,))
+        return self.run_query('''SELECT rowid,* from
+                                transactions WHERE strftime('%m', date)=?''',(month,))
     # Sydney
     def summarize_transactions_by_year(self, year):
         ''' summarize transactions by year, using the year parameter passed in
          and returning a list of transactions that have that year.'''
-        return self.run_query("SELECT rowid,* from transactions WHERE strftime('%Y', date)=?",(year,))
+        return self.run_query('''SELECT rowid,* from
+                                transactions WHERE strftime('%Y', date)=?''',(year,))
     # Sydney
     def summarize_transactions_by_category(self, category):
         ''' summarize transactions by category, using the category parameter passed in
