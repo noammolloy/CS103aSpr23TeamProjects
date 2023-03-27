@@ -42,6 +42,7 @@ class Transaction():
          and returning a list of transactions that have that category. '''
         return self.run_query("SELECT rowid,* from transactions WHERE category=?",(category,))
     def reset(self):
+        ''' reset the database by removing all transactions. '''
         return self.run_query("DELETE from transactions",())
     def run_query(self,query,tuple_list):
         ''' return all of the uncompleted tasks as a list of dicts.'''
