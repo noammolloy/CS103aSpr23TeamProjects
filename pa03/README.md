@@ -47,41 +47,11 @@ test_transaction.py::test_summarize_transactions_by_category PASSED             
 
 ======================================================================= 8 passed in 0.10s ========================================================================
 
-PS C:\Users\noamm\OneDrive\Documents\Brandeis\Sophmore - spring\SWE\CS103aSpr23TeamProjects\pa03> python .\tracker.py
-usage:
-            quit
-            show_transactions
-            add_transaction <amount> <category> <YYYY-MM-DD> <description>
-            delete_transaction <rowID>
-            summarize_by_date <date>
-            summarize_by_month <month>
-            summarize_by_year <year>
-            summarize_by_category <category>
-            menu
+_____
 
-command> add_transactions 100 cat1 2022-01-14 deposit
-------------------------------------------------------------
+demonstrating the features that we added:
 
-command> add_transactions 200 cat1 2022-05-28 withdraw 
-------------------------------------------------------------
 
-command> add_transactions 150 cat2 2020-07-28 withdraw 
-------------------------------------------------------------
-
-command> add_transactions 1000 cat2 2021-01-14 deposit 
-------------------------------------------------------------
-
-------------------------------------------------------------
-
-command> show_transactions
-no tasks to print
-------------------------------------------------------------
-
-command> show_transactions
-no tasks to print
-------------------------------------------------------------
-
-command> quit
 PS C:\Users\noamm\OneDrive\Documents\Brandeis\Sophmore - spring\SWE\CS103aSpr23TeamProjects\pa03> python .\tracker.py
 usage:
             quit
