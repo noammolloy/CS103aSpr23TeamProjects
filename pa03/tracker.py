@@ -19,6 +19,7 @@ def print_usage():
             menu
             '''
             )
+    #Noam
 def print_transactions(_t_):
     ''' print the transaction items '''
     if len(_t_)==0:
@@ -30,6 +31,7 @@ def print_transactions(_t_):
     for item in _t_:
         values = tuple(item.values()) #(rowid,amount,category,date,desc)
         print(f"{values[0]:<10} {values[1]:<10} {values[2]:<10} {values[3]:<15} {values[4]:<10}")
+    #Noam
 def process_args(args):
     ''' process the command line arguments '''
     if args[0]=='quit':

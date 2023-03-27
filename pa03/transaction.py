@@ -12,13 +12,16 @@ class Transaction():
         self.filename = filename
         self.run_query('''CREATE TABLE IF NOT EXISTS transactions
         (amount INT, category TEXT, date DATE, description TEXT)''',())
+    #Noam
     def show_transactions(self):
         ''' show all of the transactions in the transaction table '''
         return self.run_query("SELECT rowid,* from transactions",())
+    #Jingyi
     def add_transaction(self,item):
         ''' add a new transaction item to the transaction table '''
         return self.run_query('''INSERT INTO transactions
                                 (amount, category, date, description) VALUES (?,?,?,?)''',item)
+    #Jingyi
     def delete_transaction(self,rowid):
         ''' delete a transaction item from the transaction table '''
         return self.run_query("DELETE FROM transactions WHERE rowid=?",(rowid,))
@@ -44,9 +47,11 @@ class Transaction():
         ''' summarize transactions by category, using the category parameter passed in
          and returning a list of transactions that have that category. '''
         return self.run_query("SELECT rowid,* from transactions WHERE category=?",(category,))
+    #Jingyi
     def reset(self):
         ''' reset the database by removing all transactions. '''
         return self.run_query("DELETE from transactions",())
+    #Noam
     def run_query(self,query,tuple_list):
         ''' return all of the uncompleted tasks as a list of dicts.'''
         con= sqlite3.connect(self.filename)

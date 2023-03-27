@@ -5,6 +5,7 @@ test_transaction runs a few tests on the transaction methods.
 from transaction import Transaction
 import pytest
 
+#Sydney
 def test_empty():
     ts = Transaction('tracker.db')
     ts.reset()
@@ -14,6 +15,7 @@ def test_empty():
     assert ts.summarize_transactions_by_year('year') == []
     assert ts.summarize_transactions_by_category('category') == []
 
+#Noam
 def test_show_transaction():
     ts = Transaction('tracker.db')
     ts.reset()
@@ -30,6 +32,7 @@ def test_show_transaction():
     assert ts.show_transactions() == expected
     ts.reset()
 
+#Noam
 def test_add_transaction():
     ts = Transaction('tracker.db')
     ts.reset()
@@ -49,6 +52,7 @@ def test_add_transaction():
     assert ts.show_transactions() == expected
     ts.reset()
 
+#Jingyi
 def test_delete_transaction():
     ts = Transaction('tracker.db')
     ts.reset()
@@ -66,6 +70,7 @@ def test_delete_transaction():
     assert ts.show_transactions() == expected
     ts.reset()
 
+#Sydney
 def test_summarize_transactions_by_date():
     ts = Transaction('tracker.db')
     ts.reset()
@@ -79,6 +84,7 @@ def test_summarize_transactions_by_date():
     assert ts.summarize_transactions_by_date('2021-01-14') == expected
     ts.reset()
 
+#Sydney
 def test_summarize_transactions_by_month():
     ts = Transaction('tracker.db')
     ts.reset()
@@ -92,6 +98,7 @@ def test_summarize_transactions_by_month():
     assert ts.summarize_transactions_by_month('05') == expected
     ts.reset()
 
+#Sydney
 def test_summarize_transactions_by_year():
     ts = Transaction('tracker.db')
     ts.reset()
@@ -105,6 +112,7 @@ def test_summarize_transactions_by_year():
     assert ts.summarize_transactions_by_year('2022') == expected
     ts.reset()
 
+#Jingyi
 def test_summarize_transactions_by_category():
     ts = Transaction('tracker.db')
     ts.reset()
@@ -118,7 +126,7 @@ def test_summarize_transactions_by_category():
     assert ts.summarize_transactions_by_category('cat1') == expected
     ts.reset()
 
-
+#Noam
 if __name__=='__main__':
     test_show_transaction()
     test_add_transaction()
