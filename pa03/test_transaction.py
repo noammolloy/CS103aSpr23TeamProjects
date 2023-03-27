@@ -28,6 +28,7 @@ def test_show_transaction():
                 {'item #': 4, 'amount': 1000, 'category': 'cat2', 'date': '2021-01-14', 'description': 'deposit'}, 
                 {'item #': 5, 'amount': 325, 'category': 'cat2', 'date': '2021-05-03', 'description': 'withdraw'}]
     assert ts.show_transactions() == expected
+    ts.reset()
 
 def test_add_transaction():
     ts = Transaction('tracker.db')
@@ -46,6 +47,7 @@ def test_add_transaction():
                 {'item #': 6, 'amount': 50, 'category': 'cat1', 'date': '2020-07-03', 'description': 'withdraw'}] # added row
     ts.add_transaction((50, 'cat1', '2020-07-03', 'withdraw'))
     assert ts.show_transactions() == expected
+    ts.reset()
 
 def test_delete_transaction():
     ts = Transaction('tracker.db')
@@ -62,6 +64,7 @@ def test_delete_transaction():
                 {'item #': 5, 'amount': 325, 'category': 'cat2', 'date': '2021-05-03', 'description': 'withdraw'}]
     ts.delete_transaction(1)
     assert ts.show_transactions() == expected
+    ts.reset()
 
 def test_summarize_transactions_by_date():
     ts = Transaction('tracker.db')
@@ -74,6 +77,7 @@ def test_summarize_transactions_by_date():
     expected = [{'item #': 1, 'amount': 100, 'category': 'cat1', 'date': '2021-01-14', 'description': 'deposit'}, 
                 {'item #': 4, 'amount': 1000, 'category': 'cat2', 'date': '2021-01-14', 'description': 'deposit'}]
     assert ts.summarize_transactions_by_date('2021-01-14') == expected
+    ts.reset()
 
 def test_summarize_transactions_by_month():
     ts = Transaction('tracker.db')
@@ -86,6 +90,7 @@ def test_summarize_transactions_by_month():
     expected = [{'item #': 2, 'amount': 200, 'category': 'cat1', 'date': '2022-05-28', 'description': 'withdraw'}, 
                 {'item #': 5, 'amount': 325, 'category': 'cat2', 'date': '2021-05-03', 'description': 'withdraw'}]
     assert ts.summarize_transactions_by_month('05') == expected
+    ts.reset()
 
 def test_summarize_transactions_by_year():
     ts = Transaction('tracker.db')
@@ -98,6 +103,7 @@ def test_summarize_transactions_by_year():
     expected = [{'item #': 1, 'amount': 100, 'category': 'cat1', 'date': '2022-01-14', 'description': 'deposit'}, 
                 {'item #': 2, 'amount': 200, 'category': 'cat1', 'date': '2022-05-28', 'description': 'withdraw'}]
     assert ts.summarize_transactions_by_year('2022') == expected
+    ts.reset()
 
 def test_summarize_transactions_by_category():
     ts = Transaction('tracker.db')
@@ -110,6 +116,7 @@ def test_summarize_transactions_by_category():
     expected = [{'item #': 1, 'amount': 100, 'category': 'cat1', 'date': '2022-01-14', 'description': 'deposit'}, 
                 {'item #': 2, 'amount': 200, 'category': 'cat1', 'date': '2022-05-28', 'description': 'withdraw'}]
     assert ts.summarize_transactions_by_category('cat1') == expected
+    ts.reset()
 
 
 if __name__=='__main__':

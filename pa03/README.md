@@ -46,3 +46,143 @@ test_transaction.py::test_summarize_transactions_by_year PASSED                 
 test_transaction.py::test_summarize_transactions_by_category PASSED                                                                                        [100%]
 
 ======================================================================= 8 passed in 0.10s ========================================================================
+
+PS C:\Users\noamm\OneDrive\Documents\Brandeis\Sophmore - spring\SWE\CS103aSpr23TeamProjects\pa03> python .\tracker.py
+usage:
+            quit
+            show_transactions
+            add_transaction <amount> <category> <YYYY-MM-DD> <description>
+            delete_transaction <rowID>
+            summarize_by_date <date>
+            summarize_by_month <month>
+            summarize_by_year <year>
+            summarize_by_category <category>
+            menu
+
+command> add_transactions 100 cat1 2022-01-14 deposit
+------------------------------------------------------------
+
+command> add_transactions 200 cat1 2022-05-28 withdraw 
+------------------------------------------------------------
+
+command> add_transactions 150 cat2 2020-07-28 withdraw 
+------------------------------------------------------------
+
+command> add_transactions 1000 cat2 2021-01-14 deposit 
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+command> show_transactions
+no tasks to print
+------------------------------------------------------------
+
+command> show_transactions
+no tasks to print
+------------------------------------------------------------
+
+command> quit
+PS C:\Users\noamm\OneDrive\Documents\Brandeis\Sophmore - spring\SWE\CS103aSpr23TeamProjects\pa03> python .\tracker.py
+usage:
+            quit
+            show_transactions
+            add_transaction <amount> <category> <YYYY-MM-DD> <description>
+            delete_transaction <rowID>
+            summarize_by_date <date>
+            summarize_by_month <month>
+            summarize_by_year <year>
+            summarize_by_category <category>
+            menu
+
+command> add_transaction 100 cat1 2022-01-14 deposit  
+------------------------------------------------------------
+
+command> add_transaction 200 cat1 2022-05-28 withdraw  
+------------------------------------------------------------
+
+command> add_transaction 150 cat2 2020-07-28 withdraw  
+------------------------------------------------------------
+
+command> add_transaction 1000 cat2 2021-01-14 deposit  
+------------------------------------------------------------
+
+command> add_transaction 325 cat2 2021-05-03 withdraw  
+------------------------------------------------------------
+
+command> show_transactions
+
+
+item #     amount     category   date            description
+------------------------------------------------------------
+1          100        cat1       2022-01-14      deposit
+2          200        cat1       2022-05-28      withdraw
+3          150        cat2       2020-07-28      withdraw
+4          1000       cat2       2021-01-14      deposit
+5          325        cat2       2021-05-03      withdraw
+------------------------------------------------------------
+
+command> delete_transaction 3
+------------------------------------------------------------
+
+command> show_transactions    
+
+
+item #     amount     category   date            description
+------------------------------------------------------------
+1          100        cat1       2022-01-14      deposit
+2          200        cat1       2022-05-28      withdraw
+4          1000       cat2       2021-01-14      deposit
+5          325        cat2       2021-05-03      withdraw
+------------------------------------------------------------
+
+command> summarize_by_date 2022-01-14
+
+
+item #     amount     category   date            description
+------------------------------------------------------------
+1          100        cat1       2022-01-14      deposit
+------------------------------------------------------------
+
+command> summarize_by_month 05       
+
+
+item #     amount     category   date            description
+------------------------------------------------------------
+2          200        cat1       2022-05-28      withdraw
+5          325        cat2       2021-05-03      withdraw
+------------------------------------------------------------
+
+command> summarize_by_year 2022
+
+
+item #     amount     category   date            description
+------------------------------------------------------------
+1          100        cat1       2022-01-14      deposit
+2          200        cat1       2022-05-28      withdraw
+------------------------------------------------------------
+
+command> summarize_by_category cat2
+
+
+item #     amount     category   date            description
+------------------------------------------------------------
+4          1000       cat2       2021-01-14      deposit
+5          325        cat2       2021-05-03      withdraw
+------------------------------------------------------------
+
+command> menu
+usage:
+            quit
+            show_transactions
+            add_transaction <amount> <category> <YYYY-MM-DD> <description>
+            delete_transaction <rowID>
+            summarize_by_date <date>
+            summarize_by_month <month>
+            summarize_by_year <year>
+            summarize_by_category <category>
+            menu
+
+------------------------------------------------------------
+
+command> quit
+PS C:\Users\noamm\OneDrive\Documents\Brandeis\Sophmore - spring\SWE\CS103aSpr23TeamProjects\pa03> 
