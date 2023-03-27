@@ -3,16 +3,13 @@ import sqlite3
 
 def to_dict(dict_t):
     ''' t is a dictionary of the transaction table'''
-    print(dict_t)
-    transaction_dict = {'item #':dict_t[0], 'amount':dict_t[1], 'category':dict_t[2],
+    return {'item #':dict_t[0], 'amount':dict_t[1], 'category':dict_t[2],
                    'date':dict_t[3], 'description':dict_t[4]}
-    return transaction_dict
 class Transaction():
     '''list of SQL commands that the user can indirectly call'''
     # Noam
     def __init__(self, filename):
         self.filename = filename
-        # self.id = 0
         self.run_query('''CREATE TABLE IF NOT EXISTS transactions
         (amount INT, category TEXT, date DATE, description TEXT)''',())
     def show_transactions(self):
@@ -33,12 +30,12 @@ class Transaction():
     def summarize_transactions_by_month(self, month):
         ''' summarize transactions by month, using the month parameter passed in
          and returning a list of transactions that have that month. '''
-        return self.run_query("SELECT rowid,* from transactions WHERE MONTH(date)=?",(month,))
+        return self.run_query("SELECT rowid,* from transactions WHERE strftime('%m', date)=?",(month,))
     # Sydney
     def summarize_transactions_by_year(self, year):
         ''' summarize transactions by year, using the year parameter passed in
          and returning a list of transactions that have that year.'''
-        return self.run_query("SELECT rowid,* from transactions WHERE YEAR(date)=?",(year,))
+        return self.run_query("SELECT rowid,* from transactions WHERE strftime('%Y', date)=?",(year,))
     # Sydney
     def summarize_transactions_by_category(self, category):
         ''' summarize transactions by category, using the category parameter passed in

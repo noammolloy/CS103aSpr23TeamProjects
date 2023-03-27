@@ -31,7 +31,7 @@ def test_show_transaction():
     assert ts.show_transactions() == None
 
 def test_add_transaction():
-    assert ts.add_transaction('item#', 'amount', 'category', 'date', 'description') == None
+    assert ts.add_transaction('amount', 'category', 'date', 'description') == None
 
 def test_delete_transaction():
     assert ts.delete_transaction('rowid') == None

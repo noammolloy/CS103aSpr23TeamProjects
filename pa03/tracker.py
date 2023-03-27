@@ -72,11 +72,11 @@ def toplevel():
                 # join everything after the name as a string
                 args = ['add_transaction', tuple(args[1:])]
             process_args(args)
-            print('-'*60+'\n'*3)
+            print('-'*60+'\n')
     else:
         # read the args and process them
         args = sys.argv[1:]
         process_args(args)
-        print('-'*40+'\n')
+        print('-'*60+'\n')
 
 toplevel()
