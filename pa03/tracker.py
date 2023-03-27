@@ -19,17 +19,17 @@ def print_usage():
             menu
             '''
             )
-def print_transactions(t):
+def print_transactions(_t_):
     ''' print the transaction items '''
-    if len(t)==0:
+    if len(_t_)==0:
         print('no tasks to print')
         return
     print('\n')
-    print("%-10s %-10s %-10s %-15s %-10s"%('item #','amount','category','date','description'))
+    print(f"{'item #':<10} {'amount':<10} {'category':<10} {'date':<15} {'description':<10}")
     print('-'*60)
-    for item in t:
+    for item in _t_:
         values = tuple(item.values()) #(rowid,amount,category,date,desc)
-        print("%-10s %-10s %-10s %-15s %-10s"%values)
+        print(f"{values[0]:<10} {values[1]:<10} {values[2]:<10} {values[3]:<15} {values[4]:<10}")
 def process_args(args):
     ''' process the command line arguments '''
     if args[0]=='quit':
