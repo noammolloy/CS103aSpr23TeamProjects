@@ -5,30 +5,14 @@ test_transaction runs a few tests on the transaction methods.
 from transaction import Transaction
 import pytest
 
-ts = Transaction('tracker.db')
-ts.reset()
-ts.add_transaction((100,'cat1','2022-01-14','deposit'))
-ts.add_transaction((200,'cat1','2022-05-28','withdraw'))
-ts.add_transaction((150,'cat2','2020-07-28','withdraw'))
-ts.add_transaction((1000,'cat2','2021-01-14','deposit'))
-ts.add_transaction((325,'cat2','2021-05-03','withdraw'))
-
-DEFAULT_TRANSACTIONS = [{'item #': 1, 'amount': 100, 'category': 'cat1', 'date': '2022-1-14', 'description': 'deposit'}, 
-                        {'item #': 2, 'amount': 200, 'category': 'cat1', 'date': '2022-5-28', 'description': 'withdraw'}, 
-                        {'item #': 3, 'amount': 150, 'category': 'cat2', 'date': '2020-7-28', 'description': 'withdraw'}, 
-                        {'item #': 4, 'amount': 1000, 'category': 'cat2', 'date': '2021-1-14', 'description': 'deposit'}, 
-                        {'item #': 5, 'amount': 325, 'category': 'cat2', 'date': '2021-5-3', 'description': 'withdraw'}]
-
 def test_empty():
     ts = Transaction('tracker.db')
-    assert ts.show_transactions() == None
-    assert ts.add_transaction('item#', 'amount', 'category', 'date', 'description') == None
-    assert ts.delete_transaction('rowID') == None
-    assert ts.summarize_transactions_by_date('date') == None
-    assert ts.summarize_transactions_by_month('month') == None
-    assert ts.summarize_transactions_by_year('year') == None
-    assert ts.summarize_transactions_by_category('category') == None
-    assert ts.menu() == None
+    ts.reset()
+    assert ts.show_transactions() == []
+    assert ts.summarize_transactions_by_date('date') == []
+    assert ts.summarize_transactions_by_month('month') == []
+    assert ts.summarize_transactions_by_year('year') == []
+    assert ts.summarize_transactions_by_category('category') == []
 
 def test_show_transaction():
     ts = Transaction('tracker.db')
