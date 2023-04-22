@@ -5,4 +5,3 @@ Team
 * Noam Molloy: noammolloy
 * Jingyi Wang: jingyiwang21
 * Sydney Cohen: sydney-cohen
-* Zared Cohen: zaredos
