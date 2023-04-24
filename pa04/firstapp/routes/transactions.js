@@ -5,6 +5,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User')
 const TransactionItem = require('../models/TransactionItem')
+const mongoose = require('mongoose')
 
 
 /*
@@ -25,8 +26,23 @@ isLoggedIn = (req,res,next) => {
 router.get('/transactions/',
   isLoggedIn,
   async (req, res, next) => {
-      let items = await TransactionItem.find({userId:req.user._id})
-                                        // .sort({completed:1,priority:1,createdAt:1})
+      const sort = req.query.sort
+      let items = []
+      if (sort=='category'){
+        items = await TransactionItem.find({userId:req.user._id})
+                                      .sort({category: 1})
+      } else if (sort=='amount'){
+        items = await TransactionItem.find({userId:req.user._id})
+                                      .sort({amount: 1})
+      } else if (sort=='description'){
+        items = await TransactionItem.find({userId:req.user._id})
+                                      .sort({description: 1})
+      } else if (sort=='date'){
+        items = await TransactionItem.find({userId:req.user._id})
+                                      .sort({date: 1})
+      } else {
+        items = await TransactionItem.find({userId:req.user._id})
+      }
 
       res.render('transactions', {items});
 });
@@ -79,25 +95,11 @@ router.post('/transactions/updateTransactionItem',
 router.get('/transactions/groupByCategory',
   isLoggedIn,
   async (req, res, next) => {
-      // let results =
-      //       await TransactionItem.aggregate(
-      //           [ 
-      //             {$group:{
-      //               _id:'$userId',
-      //               total:{$count:{}}
-      //               }},
-      //             {$sort:{total:-1}},              
-      //           ])
-              
-      //   results = 
-      //      await User.populate(results,
-      //              {path:'_id',
-      //              select:['category','amount']})
-      // const userId = req.user._id;
       let results = 
             await TransactionItem.aggregate([
-              
-                { $match: { userId:req.user._id } },
+                { $match: {
+                  userId: new mongoose.Types.ObjectId(req.user._id)
+                }},
                 { $group: {
                   _id: '$category',
                   total: { $sum: '$amount' } // calculate the total amount for each category
@@ -105,15 +107,11 @@ router.get('/transactions/groupByCategory',
                 // { $sort: { total: -1 } } // sort the results by category
             ]);
 
-      // results = 
-      //      await User.populate(results,
-      //           {path:'_id',
-      //           select:['category']})
-
-        //res.json(results)
         console.log('hi')
         console.log(results)
         res.render('categoryTable',{results})
 });
+
+
 
 module.exports = router;
