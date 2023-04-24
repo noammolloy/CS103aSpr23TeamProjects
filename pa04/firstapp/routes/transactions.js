@@ -39,7 +39,8 @@ router.post('/transactions',
         {description: req.body.desc,
          amount: req.body.amt,
          category: req.body.cat,
-         date: new Date()
+         date: req.body.date,
+         userId: req.user._id
         })
       await transaction.save();
       res.redirect('/transactions')
