@@ -46,4 +46,39 @@ router.post('/transactions',
       res.redirect('/transactions')
 });
 
+router.get('/transactions/remove/:itemId',
+  isLoggedIn,
+  async (req, res, next) => {
+      console.log("inside /transactions/remove/:itemId")
+      await TransactionItem.deleteOne({_id:req.params.itemId});
+      res.redirect('/transactions')
+});
+
+router.get('/transactions/edit/:itemId',
+  isLoggedIn,
+  async (req, res, next) => {
+      console.log("inside /transactions/edit/:itemId")
+      const item = 
+       await TransactionItem.findById(req.params.itemId);
+      // res.render('transactionEdit', { item });
+      res.locals.item = item
+      res.render('transactionEdit')
+      //res.json(item)
+});
+
+router.post('/transactions/updateTransactionItem',
+  isLoggedIn,
+  async (req, res, next) => {
+      const {itemId,desc,amt,cat,date} = req.body;
+      // console.log(req.body)
+      await TransactionItem.findOneAndUpdate(
+        {_id:itemId},
+        {$set: {desc,amt,cat,date}} );
+      
+      const test =
+          await TransactionItem.find({_id:itemId})
+      console.log(test)
+      res.redirect('/transactions')
+});
+
 module.exports = router;
