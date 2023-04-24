@@ -2,6 +2,32 @@
 
 
     <p> Here is your list of things to do! </p>
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <a  class="btn btn-primary"
+                        href="/transactions/groupByCategory">group by category</a>
+                </td>
+                <td>
+                    <a  class="btn btn-primary"
+                        href="/transactions/sortByCategory">sort by category</a>
+                </td>
+                <td>
+                    <a  class="btn btn-primary"
+                        href="/transactions/sortByAmount">sort by amount</a>
+                </td>
+                <td>
+                    <a  class="btn btn-primary"
+                        href="/transactions/sortByDesc">sort by description</a>
+                </td>
+                <td>
+                    <a  class="btn btn-primary"
+                        href="/transactions/sortByDate">sort by date</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
     <table class="table table-bordered table-striped">
         <thead>
@@ -37,7 +63,8 @@
 
         </tbody>
     </table>
-
+    <br>
+    <h1>Add a New Transaction</h1>
     <form method="post" action="transactions">
         <input type="text" name="desc" placeholder="description">
         <br>

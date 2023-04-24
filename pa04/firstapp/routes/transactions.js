@@ -69,16 +69,51 @@ router.get('/transactions/edit/:itemId',
 router.post('/transactions/updateTransactionItem',
   isLoggedIn,
   async (req, res, next) => {
-      const {itemId,desc,amt,cat,date} = req.body;
-      // console.log(req.body)
+      const {itemId,description,amount,category,date} = req.body;
       await TransactionItem.findOneAndUpdate(
         {_id:itemId},
-        {$set: {desc,amt,cat,date}} );
-      
-      const test =
-          await TransactionItem.find({_id:itemId})
-      console.log(test)
+        {$set: {description,amount,category,date}} );
       res.redirect('/transactions')
+});
+
+router.get('/transactions/groupByCategory',
+  isLoggedIn,
+  async (req, res, next) => {
+      // let results =
+      //       await TransactionItem.aggregate(
+      //           [ 
+      //             {$group:{
+      //               _id:'$userId',
+      //               total:{$count:{}}
+      //               }},
+      //             {$sort:{total:-1}},              
+      //           ])
+              
+      //   results = 
+      //      await User.populate(results,
+      //              {path:'_id',
+      //              select:['category','amount']})
+      // const userId = req.user._id;
+      let results = 
+            await TransactionItem.aggregate([
+              
+                { $match: { userId:req.user._id } },
+                { $group: {
+                  _id: '$category',
+                  total: { $sum: '$amount' } // calculate the total amount for each category
+                }},
+                // { $sort: { total: -1 } } // sort the results by category
+            ]);
+
+      // results = 
+      //      await User.populate(results,
+      //           {path:'_id',
+      //           select:['category']})
+
+        //res.json(results)
+        console.log('hi')
+        console.log(results)
+        res.render('categoryTable',{results})
 });
 
 module.exports = router;
