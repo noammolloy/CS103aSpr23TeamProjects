@@ -26,9 +26,9 @@ router.get('/transactions/',
   isLoggedIn,
   async (req, res, next) => {
       let items = await TransactionItem.find({userId:req.user._id})
-                                        .sort({completed:1,priority:1,createdAt:1})
+                                        // .sort({completed:1,priority:1,createdAt:1})
 
-      res.render('transactions', items);
+      res.render('transactions', {items});
 });
 
 /* add the value in the body to the list associated to the key */
