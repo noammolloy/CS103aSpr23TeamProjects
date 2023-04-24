@@ -1,0 +1,29 @@
+<h1>Transactions for <%= user.username %></h1>
+
+
+    <p> Here is your list of things to do! </p>
+
+    <ul>
+        <li>
+        <a href="/transactions">transactions table</a>
+        </li>
+    </ul>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>category</th>
+                <th>amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% results.map(item => {%>
+                <tr>
+                    <td><%= item._id %></td>
+                    <td><%= item.total %></td>
+                </tr>
+                
+                <% }) %>
+
+        </tbody>
+    </table>
