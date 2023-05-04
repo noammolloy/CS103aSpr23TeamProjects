@@ -23,13 +23,9 @@ router.post('/noam',
   async (req, res, next) => {
       const prompt = "Make the following variable name dinosaur themed: ".concat(req.body.prompt);
       const response = await axios.post('https://api.openai.com/v1/engines/text-davinci-003/completions', {
-        prompt: prompt,
-        max_tokens: 60,
-        n: 1,
-        stop: '###',
+        prompt: prompt
       }, {
         headers: {
-          'Content-Type': 'application/json',
           'Authorization': `Bearer ${process.env.APIKEY}`,
         },
       });
