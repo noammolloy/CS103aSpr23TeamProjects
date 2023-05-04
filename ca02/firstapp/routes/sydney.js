@@ -24,7 +24,7 @@ router.post('/sydney',
       const prompt = "Create a short story using these input keywords about dinosaurs: ".concat(req.body.prompt);
       const response = await axios.post('https://api.openai.com/v1/engines/text-davinci-003/completions', {
         prompt: prompt,
-        max_tokens: 60,
+        max_tokens: 200,
         n: 1,
         stop: '###',
       }, {
