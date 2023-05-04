@@ -116,6 +116,13 @@ app.get('/team',
   }
 )
 
+app.get('/result', 
+  isLoggedIn,
+  (req,res,next) => {
+    res.render('result');
+  }
+)
+
 app.use(toDoRouter);
 app.use(weatherRouter);
 app.use(noamRouter);
