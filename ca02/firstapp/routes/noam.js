@@ -22,7 +22,7 @@ router.post('/noam',
   isLoggedIn,
   async (req, res, next) => {
       const prompt = "Make the following variable name dinosaur themed: ".concat(req.body.prompt);
-      const response = await axios.post('https://api.openai.com/v1/engines/davinci/completions', {
+      const response = await axios.post('https://api.openai.com/v1/engines/text-davinci-003/completions', {
         prompt: prompt,
         max_tokens: 60,
         n: 1,
