@@ -32,7 +32,6 @@ router.post('/jingyi',
         },
       });
       const r = response.data.choices[0].text.trim();
-      console.log(r)
       res.render('jingyi', {r})
 });
 
