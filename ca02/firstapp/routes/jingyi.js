@@ -36,12 +36,4 @@ router.post('/jingyi',
       res.render('jingyi', {r})
 });
 
-function clean(str) {
-  const index = str.indexOf('\n');
-  if (index === -1) {
-    return null; // return null if no newline is found
-  }
-  return str.slice(index + 1);
-}
-
 module.exports = router;
