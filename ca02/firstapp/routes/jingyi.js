@@ -31,7 +31,7 @@ router.post('/jingyi',
           'Authorization': `Bearer ${process.env.APIKEY}`,
         },
       });
-      const r = clean(response.data.choices[0].text.trim());
+      const r = response.data.choices[0].text.trim();
       console.log(r)
       res.render('jingyi', {r})
 });
