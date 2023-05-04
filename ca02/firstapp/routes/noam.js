@@ -30,9 +30,6 @@ router.post('/noam',
         },
       });
       const r = response.data.choices[0].text.trim();
-      console.log(prompt);
-      console.log(response)
-      console.log(r)
       res.render('noam', {r})
 });
 
