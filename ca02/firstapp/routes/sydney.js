@@ -29,14 +29,10 @@ router.post('/sydney',
         stop: '###',
       }, {
         headers: {
-          'Content-Type': 'application/json',
           'Authorization': `Bearer ${process.env.APIKEY}`,
         },
       });
       const r = response.data.choices[0].text.trim();
-      console.log(prompt);
-      console.log(response)
-      console.log(r)
       res.render('sydney', {r})
 });
 
